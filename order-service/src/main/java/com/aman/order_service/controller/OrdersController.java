@@ -18,8 +18,8 @@ public class OrdersController {
     private final OrdersService ordersService;
 
     @GetMapping(path = "/helloOrders")
-    public String helloOrders() {
-        return "Hello from order service";
+    public String helloOrders(@RequestHeader("X-User-Id") Long userId) {
+        return "Hello from order service with userId: {}" + userId;
     }
 
     @PostMapping(path = "/create-order")
