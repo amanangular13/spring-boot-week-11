@@ -4,6 +4,7 @@ import com.aman.order_service.dto.OrderRequestDto;
 import com.aman.order_service.service.OrdersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/core")
 @Slf4j
+@RefreshScope // user this where bean needs to be change dynamically by config server otherwise don't ( use actuator endpoint to refresh )
 public class OrdersController {
 
     private final OrdersService ordersService;
